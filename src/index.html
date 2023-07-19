@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link href="/dist/output.css" rel="stylesheet" />
+
+    <script
+      src="https://kit.fontawesome.com/1d41b3ab2c.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script defer src="main.js"></script>
+  </head>
+  <body
+    class="bg-sixty min-h-screen flex flex-col justify-start items-center w-screen gap-16"
+  >
+    <div class="modal__cover hidden"></div>
+
+    <header class="w-full mt-10">
+      <div class="flex flex-col justify-center items-center gap-6">
+        <div class="flex flex-row justify-center items-center gap-6">
+          <h1 class="font-satisfy font-bold text-6xl text-[#F0F8FF]">
+            Listify
+          </h1>
+          <i class="fa-solid fa-feather scale-[3]" style="color: #f0f8ff"></i>
+        </div>
+        <div class="flex flex-row justify-center items-center gap-8">
+          <p class="text-2xl py-4 text-center font-satisfy">Nova Tarefa</p>
+          <button>
+            <i
+              class="expandModal fa-solid fa-circle-plus scale-[2.5]"
+              style="color: #f0f8ff"
+            ></i>
+          </button>
+        </div>
+      </div>
+      <div class="modal hidden">
+        <div
+          class="font-raleway w-full flex flex-col justify-center items-center gap-6"
+        >
+          <button class="absolute right-[5%] top-[2%]">
+            <i
+              class="closeInModal fa-solid fa-circle-xmark scale-[1.3]"
+              style="color: #862727"
+            ></i>
+          </button>
+          <h1 class="font-satisfy text-4xl drop-shadow-lg">New Task</h1>
+          <div class="flex flex-col justify-center items-start w-[85%]">
+            <label for="taskTitle" class="font-bold drop-shadow-md"
+              >Task:</label
+            >
+            <input
+              required
+              type="text"
+              name=""
+              id="taskTitle"
+              class="min-w-full drop-shadow-md"
+            />
+          </div>
+          <div class="flex flex-col justify-center items-start w-[85%]">
+            <label for="taskDescription" class="font-bold drop-shadow-md"
+              >Description:</label
+            >
+            <textarea
+              id="taskDescription"
+              rows="3"
+              cols="10"
+              wrap="soft"
+              maxlength="100"
+              class="min-w-full drop-shadow-md font-raleway p-2"
+            ></textarea>
+          </div>
+          <div class="flex flex-col justify-center items-center gap-2">
+            <input
+              type="range"
+              min="1"
+              max="10"
+              name=""
+              id="taskPriority"
+              class="bg-transparent"
+            />
+            <p
+              class="taskPriority-importance font-satisfy text-xl bg-taskYellow rounded-lg px-4 py-2 drop-shadow-md"
+            >
+              Important
+            </p>
+          </div>
+
+          <button class="btnCrud scale-[2.5] drop-shadow-sm">
+            <i class="fa-solid fa-circle-plus" style="color: #687ca1"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="modal modal__details hidden">
+      <div class="flex flex-col justify-center items-center gap-6 font-raleway">
+        <h2 class="modal__taskTitle font-bold text-3xl">Task Title</h2>
+        <p
+          class="modal__taskDescription text-lg underline underline-offset-4 w-full bg-white text-justify indent-4"
+        >
+          Task Description
+        </p>
+        <div
+          class="modal__taskImportance w-full font-satisfy text-2xl text-center"
+        >
+          OiOi
+        </div>
+        <!--
+        <div
+          class="w-full flex flex-row justify-center items-center text-center"
+        >
+          <div class="w-1/2">
+            <i
+              class="fa-solid fa-check text-3xl bg-[#f0f8ff] rounded-[50%] p-3"
+              style="color: #29b332"
+            ></i>
+          </div>
+          <div class="w-1/2">
+            <i
+              class="fa-solid fa-trash w-1/2 text-2xl"
+              style="color: #862727"
+            ></i>
+          </div>
+        </div>
+        -->
+        <p class="modal__timeStamp">01/01/2012 - 00:00</p>
+      </div>
+    </div>
+    <main class="flex flex-col justify-start items-center w-full gap-16">
+      <section
+        class="toDo__wrapper flex flex-col justify-start items-center w-10/12"
+      >
+        <div
+          class="toDo__header shadow-lg rounded-lg flex flex-row justify-end items-center w-full bg-thirty"
+          data-headerstatus="0"
+        >
+          <h2
+            class="w-[65%] text-right pr-2 font-satisfy text-3xl py-2 text-gray-600"
+          >
+            To do
+          </h2>
+          <button
+            class="btn-expand w-[35%] text-right pr-2"
+            data-icon="fa-angles-down"
+            data-box="0"
+          >
+            <i class="awesome fa-solid fa-angles-up"></i>
+          </button>
+        </div>
+        <div
+          class="toDo__container w-[90%] flex flex-row justify-between items-center"
+        >
+          <ul class="w-full toDo__list" data-which="0"></ul>
+        </div>
+      </section>
+
+      <section
+        class="toDo__wrapper flex flex-col justify-start items-center w-10/12"
+      >
+        <div
+          class="toDo__header shadow-lg rounded-lg flex flex-row justify-end items-center w-full bg-thirty"
+          data-headerstatus="1"
+        >
+          <h2
+            class="w-[65%] text-right pr-2 font-satisfy text-3xl py-2 text-gray-600"
+          >
+            Done
+          </h2>
+          <button
+            class="btn-expand w-[35%] text-right pr-2"
+            data-icon="fa-angles-down"
+            data-box="0"
+          >
+            <i class="awesome fa-solid fa-angles-up"></i>
+          </button>
+        </div>
+        <div
+          class="done__container w-[90%] flex flex-row justify-between items-center"
+        >
+          <ul class="w-full done__list" data-which="1"></ul>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

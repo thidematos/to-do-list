@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=Raleway:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.debugBorder {
+  @apply border border-solid border-red-500;
+}
+
+.toDo__item {
+  @apply border border-solid border-thirty bg-[#F0F8FF] w-full flex flex-row justify-between items-center p-2;
+}
+
+.taskTitle {
+  @apply font-raleway font-bold py-4;
+}
+
+.toDo__container,
+.done__container {
+  @apply duration-1000 origin-top;
+}
+
+.toDo__container-border {
+  @apply border-b-[3px] border-x-[3px] rounded-b-lg border-thirty;
+}
+
+.modal {
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  @apply absolute w-[70vw] bg-thirty px-6 py-8 rounded-lg z-50;
+}
+
+.modal__cover {
+  @apply z-10 bg-black w-screen h-screen opacity-60 absolute;
+}
+
+.scaleHidden {
+  @apply scale-y-0;
+}
+
+.scaleShown {
+  @apply scale-y-100;
+}
